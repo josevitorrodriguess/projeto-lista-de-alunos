@@ -11,6 +11,25 @@ public class ListaAlunos {
         return null;
     }
 
+    public void buscarAluno(int buscarRgm) {
+        boolean alunoEncontrado = false;
+        for (int i = 0; i < contador; i++) {
+            Aluno aluno = listaAlunos[i];
+            if (aluno != null && buscarRgm == aluno.getRgm()) {
+                System.out.println("Nome: " + aluno.getNome());
+                System.out.println("RGM: " + aluno.getRgm());
+                System.out.println("Matéria/as: " + aluno.getMaterias());
+
+                alunoEncontrado = true;
+                break;
+            }
+        }
+        if (!alunoEncontrado) {
+            System.out.println("Aluno não encontrado!");
+        }
+    }
+
+
     public void adicionarAluno(int rgm, String nome) {
         if (contador < 60) {
             Aluno novoAluno = new Aluno(rgm, nome);

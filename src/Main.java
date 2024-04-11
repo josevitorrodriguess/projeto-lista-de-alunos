@@ -28,8 +28,15 @@ public class Main {
         System.out.println(lista);
 
 
+        System.out.println("ALUNO BUSCADO:");
+        lista.buscarAluno(456);
 
+        lista.removerAluno(789);
+        System.out.println("LISTA APOS REMOVER luigi:");
+        System.out.println(lista);
 
+        System.out.println("BUSCAR LUIGI APOS REMOCAO:");
+        lista.buscarAluno(789);
 
 
         sc.close();
