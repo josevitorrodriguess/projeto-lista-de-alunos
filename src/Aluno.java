@@ -48,6 +48,6 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "Nome do Aluno: " + nome + " RGM: " + rgm + " Matérias: " + materias ;
+        return "\nNome do Aluno: " + nome + "\nRGM: " + rgm + "\nMatérias: " + materias ;
     }
 }

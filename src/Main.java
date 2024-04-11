@@ -14,8 +14,8 @@ public class Main {
     lista.adicionarAluno(789, "luigi");
 
     lista.getAluno(123).addMateria("Inteligencia Artificial");
-    lista.getAluno(123).addMateria("Inteligencia Artificial");
-    lista.getAluno(123).addMateria("Inteligencia Artificial");
+    lista.getAluno(123).addMateria("Pensamento Computacional");
+    lista.getAluno(123).addMateria("Banco de dados");
 
 
 

@@ -57,11 +57,16 @@ public class ListaMaterias {
 
         Materia materiaSeguinte = primeiro;
         while (materiaSeguinte != null) {
-            message.append(materiaSeguinte.toString()).append("\n");
+            message.append(materiaSeguinte.toString()).append(", ");
             materiaSeguinte = materiaSeguinte.getProxMateria();
+        }
+
+        if (message.length() > 0) {
+            message.delete(message.length() - 2, message.length());
         }
 
         return message.toString();
     }
+
 
 }
