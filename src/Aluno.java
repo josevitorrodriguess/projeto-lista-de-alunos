@@ -1,14 +1,26 @@
+import Disciplinas.ListaMaterias;
 import Disciplinas.Materia;
 
 public class Aluno {
     private String nome;
     private int  rgm;
-    private Materia materias;
+    private ListaMaterias materias;
 
     public Aluno(int rgm, String nome) {
         this.rgm = rgm;
         this.nome = nome;
+        this.materias = new ListaMaterias();
     }
+
+    public void addMateria(String name){
+        materias.addMateria(name);
+    }
+
+    public void removeMateria(String name){
+        materias.removerMateria(name);
+    }
+
+
 
     public int getRgm() {
         return rgm;
@@ -26,12 +38,16 @@ public class Aluno {
         this.nome = nome;
     }
 
+    public ListaMaterias getMaterias() {
+        return materias;
+    }
+
+    public void setMaterias(ListaMaterias materias) {
+        this.materias = materias;
+    }
+
     @Override
     public String toString() {
-        return "Aluno{" +
-                "nome='" + nome + '\'' +
-                ", rgm=" + rgm +
-                ", materias=" + materias +
-                '}';
+        return "Nome do Aluno: " + nome + " RGM: " + rgm + " Matérias: " + materias ;
     }
 }
