@@ -1,45 +1,61 @@
 import java.util.Scanner;
 
-
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
+
+        ListaAlunos listaAlunos = new ListaAlunos();
+
+        System.out.print("Quantos alunos adicionar na lista? ");
+        int tamanho = input.nextInt();
+
+        if (tamanho > 60 || tamanho <= 0) {
+            System.out.println("Tamanho inválido!");
+            System.exit(0);
+        }
+
+        input.nextLine();
+
+        //cria um aluno com nome rgm e matéria
+        for (int i = 0; i < tamanho; i++){
 
 
+            System.out.printf("  Digite o nome do aluno[%d]: ", i+1);
+            String nome = input.nextLine();
 
-    ListaAlunos lista = new ListaAlunos();
+            System.out.printf("  Digite o rgm de [%s]: ", nome);
+            int rgm = input.nextInt();
 
-    lista.adicionarAluno(123, "ze");
-    lista.adicionarAluno(456, "andrade");
-    lista.adicionarAluno(789, "luigi");
+            listaAlunos.adicionarAluno(rgm, nome);
 
-    lista.getAluno(123).addMateria("Inteligencia Artificial");
-    lista.getAluno(123).addMateria("Pensamento Computacional");
-    lista.getAluno(123).addMateria("Banco de dados");
+            input.nextLine();
 
+            while (true){
+                System.out.print("    Digite uma matéria: ");
+                String materia = input.nextLine();
+                listaAlunos.getAluno(rgm).addMateria(materia);
 
+                System.out.print("    Quer adicionar mais matérias [sim/não]? ");
+                String resposta = input.nextLine().toLowerCase();
 
-    lista.getAluno(456).addMateria("Sistemas Operacionais");
-    lista.getAluno(789).addMateria("Valorant");
+                if (resposta.equals("não")) {
+                    break;
+                }
+            }
+        }
 
+        System.out.println(listaAlunos);
 
+        System.out.print("\nDigite um rgm para buscar o aluno na lista: ");
+        int buscaAluno = input.nextInt();
+        listaAlunos.buscarAluno(buscaAluno);
 
+        System.out.print("\nDigite um RGM para remover um aluno da lista: ");
+        int removeAluno = input.nextInt();
+        listaAlunos.removerAluno(removeAluno);
 
-        System.out.println(lista);
+        System.out.println(listaAlunos);
 
-
-        System.out.println("ALUNO BUSCADO:");
-        lista.buscarAluno(456);
-
-        lista.removerAluno(789);
-        System.out.println("LISTA APOS REMOVER luigi:");
-        System.out.println(lista);
-
-        System.out.println("BUSCAR LUIGI APOS REMOCAO:");
-        lista.buscarAluno(789);
-
-
-        sc.close();
-
+        input.close();
     }
 }
